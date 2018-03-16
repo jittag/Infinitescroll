@@ -1,0 +1,27 @@
+
+<h3> {{title}}</h3><!--The content below is only a placeholder and can be replaced.-->
+
+
+<div class="form-group">
+  <div class="col-md-6" >
+
+           <input type="text" [(ngModel)]="queryString" id="search" placeholder="Search to type">
+  </div>
+</div>
+<div class="col-md-12" style="overflow: auto;height:100px;width: 270px"   
+  infinite-scroll 
+  [infiniteScrollDistance]="2" 
+  [infiniteScrollUpDistance]="2" 
+  [infiniteScrollThrottle]="50" 
+  (scrolled)="onScrollDown()" 
+  [scrollWindow]="false">
+  <table class="table table-responsive table-hover" >    
+    <tr *ngFor="let n of names | FilterPipe: queryString">
+      <td>{{n}}</td>      
+    </tr>
+  </table>
+</div>
+
+
+
+         
